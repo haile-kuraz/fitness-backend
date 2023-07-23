@@ -4,16 +4,15 @@
   "description": "Backend done for fitness Mobile app",
   "main": "index.js",
   "scripts": {
-    "start" : "node index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
-    "build" : "netlify deploy --prod"
+    "build": "netlify deploy --prod"
   },
   "author": "Alpha Team",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
     "mongoose": "^7.3.0"
-  
   }
 }
