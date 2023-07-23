@@ -1,11 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const Serverless = require("serverless-http");
 
 const fittModel = require("./model/FittModel");
 
 const app = express();
-const router = express.Router();
+
 const port = 3000;
 
 app.use(express.json());
