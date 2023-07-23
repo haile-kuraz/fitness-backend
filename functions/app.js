@@ -1,16 +1,19 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const foodModel = require("./model/FoodModel");
+const Serverless = require("serverless-http");
+
+const fittModel = require("../model/FittModel");
 
 const app = express();
-
+const router = express.Router();
 const port = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-mongooses
-  .connect("mongodb://172.17.0.2:27017/yamii")
+// mongodb://172.17.0.3:27017/fittnes
+mongoose
+  .connect("mongodb+srv://haile:mongo@alphateam-fitt.qnspoz2.mongodb.net/")
   .then(() => {
     console.log("Connected Sucssfully!!");
   })
@@ -20,12 +23,12 @@ mongooses
 app.listen(port, () => {
   console.log(`Server is listning to port: ${port} `);
 });
-app.post("/addfood", async (req, res) => {
+app.post("/addfitt", async (req, res) => {
   /*  console.log(req.body);
   res.send(req.body); */
   try {
-    const food = await foodModel.create(req.body);
-    res.status(200).json(food);
+    const fitt = await fittModel.create(req.body);
+    res.status(200).json(fiit);
   } catch (err) {
     console.log(err.message);
 
@@ -33,23 +36,23 @@ app.post("/addfood", async (req, res) => {
   }
 });
 
-//  to dissplay the all list of Foods
-app.get("/showfoods", async (req, res) => {
+//  to dissplay the all list of fitts
+app.get("/showfitts", async (req, res) => {
   try {
-    const foods = await foodModel.find({});
-    res.status(200).json(foods);
+    const fiits = await fittModel.find({});
+    res.status(200).json(fiits);
   } catch {
     res.status(500).json({ message: error.message });
   }
 });
 
-//  to dissplay the food by using the id as params
+//  to dissplay the fitt by using the id as params
 
-app.get("/showfoods/:id", async (req, res) => {
+app.get("/showfitts/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const food = await foodModel.findById(id);
-    res.status(200).json(food);
+    const fitt = await fittModel.findById(id);
+    res.status(200).json(fitt);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -60,14 +63,14 @@ app.get("/showfoods/:id", async (req, res) => {
 app.put("/update/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const food = await foodModel.findByIdAndUpdate(id, req.body);
-    if (!food) {
+    const fitt = await fittModel.findByIdAndUpdate(id, req.body);
+    if (!fitt) {
       return res
         .status(404)
         .json({ message: `cannot find any product with ID ${id}` });
     }
-    const Updatedfood = await foodModel.findById(id);
-    res.status(200).json(Updatedfood);
+    const Updatedfitt = await fittModel.findById(id);
+    res.status(200).json(Updatedfitt);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -78,14 +81,14 @@ app.put("/update/:id", async (req, res) => {
 app.delete("/delate/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const food = await foodModel.findByIdAndDelete(id);
-    if (!food) {
+    const fitt = await fittModel.findByIdAndDelete(id);
+    if (!fitt) {
       return res
         .status(404)
         .json({ message: `cannot find any product with ID ${id}` });
     }
-    const foods = foodModel.find({});
-    res.status(200).json(food);
+    const fitts = fittModel.find({});
+    res.status(200).json(fitt);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -95,9 +98,9 @@ app.delete("/delate/:id", async (req, res) => {
 
 // app.delete("/delateAll", async (req, res) => {
 //   try {
-//    const foods = foodModel.deleteMany()
-//     const foodds = foodModel.find({});
-//     res.status(200).json(foodds);
+//    const fitts = fittModel.deleteMany()
+//     const fittds = fittModel.find({});
+//     res.status(200).json(fittds);
 //   } catch (error) {
 //     res.status(500).json({ message: error.message });
 //   }

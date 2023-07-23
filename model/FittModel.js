@@ -1,15 +1,14 @@
 const mongoose = require("mongoose");
 
 const fittSchema = mongoose.Schema({
-  _id: ObjectId,
-  exerciseCategoryImage: String,
-  exerciseCategoryName: String,
+  exerciseCategoryImage: "String",
+  exerciseCategoryName: "String",
   SubExercises: [
     {
-      Img: String,
-      V_url: String,
-      Name: String,
-      Details: String,
+      Img: "String",
+      V_url: "String",
+      Name: "String",
+      Details: "String",
     },
   ],
 });
