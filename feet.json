@@ -1,0 +1,25 @@
+{
+    "exerciseCategoryImage": "assets/images/cat9n.png",
+    "exerciseCategoryName": "LocaleKeys.All.tr()",
+    "SubExercises": [
+      {
+        "Img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrs6noMJGSd8NBfmrwex96APUX14qHBKd6-Q&usqp=CAU",
+        "V_url": "iixND1P2lik",
+        "Name": "Alternating Dumbbell Curl",
+        "Details": "The alternating dumbbell curl is a popular exercise that primarily targets the biceps, with secondary involvement from the forearms and brachialis muscles. It is a unilateral exercise, meaning it works one arm at a time. Here's a description of the alternating dumbbell curl"
+      },
+      {
+        "Img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOWUWmgyKrTgq5pKqbU-pLTSXxPXmWdlUwXQ&usqp=CAU",
+        "V_url": "pUS6HBQjRmc",
+        "Name": "Barbell Curl Narrow Grip",
+        "Details": "The barbell curl with a narrow grip is a variation of the traditional barbell curl exercise that targets the biceps, brachialis, and forearms. By using a narrower grip, you place more emphasis on the inner portion of the biceps. Here's a description of the barbell curl with a narrow grip."
+      },
+      {
+        "Img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOWUWmgyKrTgq5pKqbU-pLTSXxPXmWdlUwXQ&usqp=CAU",
+        "V_url": "ke2shAeQ0O8",
+        "Name": "Dumbbell Spider Curl",
+        "Details": "The dumbbell spider curl is a variation of the traditional bicep curl exercise that targets the biceps brachii muscles. It specifically emphasizes the short head of the biceps and helps to isolate and develop the peak of the biceps. Here's a description of the dumbbell spider curl"
+      }
+    ]
+  }
+  

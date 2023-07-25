@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 
 const fittModel = require("./model/FittModel");
+const Usermodel = require("./model/UserModel");
 
 const app = express();
 
@@ -12,7 +13,9 @@ app.use(express.urlencoded({ extended: false }));
 
 // mongodb://172.17.0.3:27017/fittnes
 mongoose
-  .connect("mongodb+srv://haile:mongo@alphateam-fitt.qnspoz2.mongodb.net/")
+  .connect(
+    "mongodb+srv://haile:mongo@alphateam-fitt.qnspoz2.mongodb.net/FittApp"
+  )
   .then(() => {
     console.log("Connected Sucssfully!!");
   })
@@ -45,6 +48,14 @@ app.get("/showfitts", async (req, res) => {
   }
 });
 
+app.get("/ShowUsers", async (req, res) => {
+  try {
+    const Users = await Usermodel.find({});
+    res.status(200).json(Users);
+  } catch {
+    res.status(500).json({ message: error.message });
+  }
+});
 //  to dissplay the fitt by using the id as params
 
 app.get("/showfitts/:id", async (req, res) => {
