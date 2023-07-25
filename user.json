@@ -1,7 +1,17 @@
-{
+[
+    {
     "fullName": "Haileliul Baye",
     "password": "123",
     "email": "haile@gmail.com",
     "age": 36,
     "gender": "male"
+},
+
+{
+    "fullName": "abebe",
+    "email":"this is email",
+    "password":"1123",
+    "age": 40,
+    "gender": "male"
 }
+]

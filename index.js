@@ -56,6 +56,56 @@ app.get("/ShowUsers", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
+// Sign In a user
+app.post("/signIn", async (req, res) => {
+  try {
+    const User = await Usermodel.findOne({
+      email: req.body.email,
+      password: req.body.password,
+    }).exec();
+    if (!User) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    res.status(200).json(User);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// ==========================
+
+// Sign Up a User
+app.post("/signup", async (req, res) => {
+  try {
+    const User = await Usermodel.findOne({
+      email: req.body.email,
+      password: req.body.password,
+    }).exec();
+    if (!User) {
+      const User = Usermodel.create({
+        fullName: req.body.fullName,
+        email: req.body.email,
+        password: req.body.password,
+        age: req.body.age,
+        gender: req.body.gender,
+      });
+
+      return res
+        .status(200)
+        .json({ message: "The User has been added Sucsusfully!!! " });
+    } else {
+      res.status(200).json({ message: "The User is already Exists" });
+    }
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// ======================
+
 //  to dissplay the fitt by using the id as params
 
 app.get("/showfitts/:id", async (req, res) => {
