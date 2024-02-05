@@ -14,7 +14,8 @@ app.use(express.urlencoded({ extended: false }));
 // mongodb://172.17.0.3:27017/fittnes
 mongoose
   .connect(
-    "mongodb+srv://haile:mongo@alphateam-fitt.qnspoz2.mongodb.net/FittApp"
+    "mongodb+srv://haile:haile@alphateam-fitt.qnspoz2.mongodb.net/FittApp"
+    // "mongodb+srv://haha:haha@alphateam-fitt.qnspoz2.mongodb.net/?retryWrites=true&w=majority"
   )
   .then(() => {
     console.log("Connected Sucssfully!!");
